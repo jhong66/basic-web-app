@@ -40,6 +40,13 @@ export default function QueryProcessor(query: string): string {
     );
   }
 
+  else if (query.toLowerCase().includes("power")) {
+    const split = query.slice(0, -1).split(" ");
+    return (
+      Math.pow(+split[2], +split[7]).toString()
+    );
+  }
+
   else if (query.toLowerCase().includes("largest")) {
     const split = query.slice(0, -1).split(" ");
     return (
