@@ -26,6 +26,13 @@ export default function QueryProcessor(query: string): string {
     );
   }
 
+  else if (query.toLowerCase().includes("multiplied")) {
+    const split = query.slice(0, -1).split(" ");
+    return (
+      (+split[2] * +split[4]).toString()
+    );
+  }
+
   else if (query.toLowerCase().includes("largest")) {
     const split = query.slice(0, -1).split(" ");
     return (
