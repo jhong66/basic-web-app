@@ -33,5 +33,41 @@ export default function QueryProcessor(query: string): string {
     );
   }
 
+  else if (query.toLowerCase().includes("square")) {
+    const split = query.split(" ");
+    for (var i = 12; i < 19; i++) {
+      if (IsSquare(+split[i].slice(0, -1)) && IsCube(+split[i].slice(0, -1))) {
+        return split[i].slice(0, -1);
+      }
+    }
+    return "None";
+  }
+
   return "";
+}
+
+function IsSquare(num: number) {
+  var root = 1;
+  var square = 1;
+  while (square <= num) {
+    if (square == num) {
+      return true;
+    }
+    root += 1;
+    square = root * root;
+  }
+  return false;
+}
+
+function IsCube(num: number) {
+  var root = 1;
+  var cube = 1;
+  while (cube <= num) {
+    if (cube == num) {
+      return true;
+    }
+    root += 1;
+    cube = root * root * root;
+  }
+  return false;
 }
