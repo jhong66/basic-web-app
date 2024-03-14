@@ -57,6 +57,17 @@ export default function QueryProcessor(query: string): string {
     return "None";
   }
 
+  else if (query.toLowerCase().includes("primes")) {
+    const split = query.split(" ");
+    var res = "";
+    for (var i = 7; i < 11; i++) {
+      if (IsPrime(+split[i].slice(0, -1))) {
+        res = res + split[i].slice(0, -1);
+      }
+    }
+    return res;
+  }
+
   return "";
 }
 
@@ -84,4 +95,15 @@ function IsCube(num: number) {
     cube = root * root * root;
   }
   return false;
+}
+
+function IsPrime(num: number) {
+  var test = 2;
+  while (test < num) {
+    if (num % test == 0) {
+      return false;
+    }
+    test += 1;
+  }
+  return true;
 }
