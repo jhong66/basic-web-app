@@ -69,6 +69,9 @@ export default function QueryProcessor(query: string): string {
     var res = "";
     for (var i = 7; i < 11; i++) {
       if (IsPrime(+split[i].slice(0, -1))) {
+        if (res.length > 0) {
+          res = res + ", ";
+        }
         res = res + split[i].slice(0, -1);
       }
     }
