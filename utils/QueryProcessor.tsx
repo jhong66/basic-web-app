@@ -19,17 +19,17 @@ export default function QueryProcessor(query: string): string {
     );
   }
 
-  else if (query.toLowerCase().includes("largest")) {
-
-    return (
-      "121"
-    );
-  }
-
   else if (query.toLowerCase().includes("plus")) {
     const split = query.slice(0, -1).split(" ");
     return (
       (+split[2] + +split[4]).toString()
+    );
+  }
+
+  else if (query.toLowerCase().includes("largest")) {
+    const split = query.slice(0, -1).split(" ");
+    return (
+      Math.max(+split[8].slice(0, -1), +split[9].slice(0, -1), +split[10]).toString()
     );
   }
 
